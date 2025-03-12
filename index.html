@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <nav class="navbar">
+        <button class="menu-toggle">☰</button>
+        <ul>
+            <li><a href="#how-it-works">¿Cómo funciona?</a></li>
+            <li><a href="#benefits">Beneficios</a></li>
+            <li><a href="#testimonials">Testimonios</a></li>
+            <li><a href="#para-quien">¿Es para mí?</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases de Inglés con Enfoque Práctico y Atención Exclusiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+        /* Mejoras en los campos del formulario de contacto */
+        .contact-form input, .contact-form textarea {
+            font-family: 'Lato', sans-serif;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #0081CF;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #0066B2;
+            box-shadow: 0px 4px 10px rgba(0, 102, 178, 0.3);
+            outline: none;
+        }
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .contact-form button {
+            font-family: 'Lato', sans-serif;
+            background-color: #0081CF;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .contact-form button:hover {
+            background-color: rgba(0, 129, 207, 0.3);
+            transform: scale(1.05);
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+        .contact-form input, .contact-form textarea, .contact-form button {
+            font-family: 'Lato', sans-serif;
+        }
+        /* Resaltado de la sección activa en el menú */
+        .navbar ul li.active a {
+            background-color: #0066B2;
+            border-radius: 5px;
+            padding: 8px 12px;
+            color: #00B4D8;
+            transition: background 0.3s ease-in-out;
+        }
+        /* Línea animada bajo la sección activa */
+        .navbar ul {
+            position: relative;
+        }
+        .navbar ul::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            height: 3px;
+            width: 0;
+            background-color: #0081CF;
+            transition: width 0.3s ease-in-out;
+        }
+        .navbar ul li.active::after {
+            width: 100%;
+        }
+        /* Efecto de cambio de color al pasar el cursor */
+        .navbar ul li a:hover {
+            color: #00B4D8;
+            transition: color 0.3s ease-in-out;
+        }
+        /* Menú hamburguesa en móviles */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            z-index: 1001;
+        }
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                background: #0081CF;
+                position: absolute;
+                top: 50px;
+                right: 0;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+            .navbar ul.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+        /* Sombra en el menú al hacer scroll */
+        .navbar.scrolled {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        /* Resaltar la sección activa */
+        .navbar ul li.active a {
+            text-decoration: underline;
+            color: #FFFFFF;
+        }
+        /* Ajuste del tamaño del botón de WhatsApp en móviles */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                padding: 8px;
+            }
+            .whatsapp-float img {
+                width: 25px;
+                height: 25px;
+            }
+            .whatsapp-float span {
+                display: none; /* Oculta el texto en móviles */
+            }
+        }
+            .whatsapp-float img {
+                width: 30px;
+                height: 30px;
+            }
+            .whatsapp-float span {
+                display: none; /* Oculta el texto en móviles */
+            }
+        }
+        /* Ajustes generales */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            border-radius: 50%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 24px;
+            z-index: 1000;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        .whatsapp-tooltip {
+            position: absolute;
+            bottom: 60px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: none;
+        }
+        .whatsapp-float:hover .whatsapp-tooltip {
+            display: block;
+        }
+        /* Animación sutil para el botón de WhatsApp */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 24px;
+            z-index: 1000;
+            animation: bounce 3s infinite ease-in-out;
+        }
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .whatsapp-float img {
+            width: 40px;
+            height: 40px;
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        .whatsapp-tooltip {
+            position: absolute;
+            bottom: 60px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: none;
+        }
+        .whatsapp-float:hover .whatsapp-tooltip {
+            display: block;
+        }
+        /* Sección de video */
+        .video-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .video-container {
+            max-width: 800px;
+            margin: auto;
+        }
+        iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        /* Formulario de contacto */
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #005bb5;
+        }
+        /* Carrusel de testimonios */
+        .testimonial-carousel {
+            display: flex;
+            overflow: hidden;
+            max-width: 800px;
+            margin: auto;
+        }
+        .testimonial-carousel div {
+            flex: 0 0 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        /* Barra de progreso de scroll */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: rgba(255,255,255,0.6);
+            z-index: 1000;
+        }
+        /* Botón flotante CTA */
+        .cta-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #0081CF;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .cta-float:hover {
+            background-color: #0066B2;
+            transform: scale(1.1);
+        }
+        /* Mejora de espaciado en móviles */
+        @media (max-width: 768px) {
+            section {
+                padding: 40px 15px;
+            }
+        }
+        /* Efecto hover en testimonios */
+        .testimonials p:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+            background-color: #f0f8ff;
+        }
+        /* Cambio de color del menú al hacer scroll */
+        .navbar {
+            transition: background 0.3s ease;
+        }
+        .navbar.scrolled {
+            background: #0081CF;
+        }
+        /* Sección de garantía */
+        .guarantee {
+            background-color: #eef7ff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .guarantee p {
+            font-size: 18px;
+            font-weight: bold;
+            max-width: 800px;
+            margin: auto;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-in-out;
+        }
+        .scroll-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 115, 230, 0.9);
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1000;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .navbar ul li {
+            display: inline;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+        }
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 24px;
+            z-index: 1000;
+        }
+        .whatsapp-float a {
+            color: white;
+            text-decoration: none;
+        }
+        .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .testimonials p {
+            flex: 1;
+            min-width: 280px;
+            max-width: 400px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .steps div {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 250px;
+        }
+        .steps div img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+    
+        .cta-button {
+            background-color: #0081CF;
+            color: white;
+            padding: 18px 30px;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 12px;
+            display: inline-block;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 5px 15px rgba(0, 129, 207, 0.4);
+        }
+        .cta-button:hover {
+            background-color: #0066B2;
+            transform: scale(1.1);
+            box-shadow: 0px 8px 20px rgba(0, 102, 178, 0.6);
+        }
+        body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f0f8ff;
+    overflow-x: hidden;
+}
+        header {
+    background: url('https://cdn.midjourney.com/3140d6db-ee63-434b-82e4-963e706797f8/0_2.png') no-repeat center center/cover;
+    position: relative;  /* Esto es esencial */
+    min-height: 250px;
+    padding: 80px 20px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top: 0; left: 0; right: 0; bottom: 0; */
+  background-color: rgba(0, 0, 0, 0.3); /* Ajusta opacidad y color */
+  z-index: 1;
+}
+
+/* Asegúrate de que el texto esté por encima de la capa */
+header h1, header p {
+  position: relative;
+  z-index: 2;
+}
+        }
+        .cta-button {
+            background-color: #0081CF;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            display: inline-block;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #0066B2;
+            transform: scale(1.1);
+            box-shadow: 0px 5px 20px rgba(0, 129, 207, 0.3);
+        }
+        .how-it-works {
+            background-color: #eef7ff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .steps div {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+        .testimonials p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .testimonials p::before {
+            content: '“';
+            font-size: 24px;
+            color: #0073e6;
+        }
+        .testimonials p::after {
+            content: '”';
+            font-size: 24px;
+            color: #0073e6;
+        }
+        .target-audience p::before {
+            font-size: 18px;
+            content: '✔ ';
+            font-weight: bold;
+            color: #0073e6;
+        }
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            background-color: #eef7ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .benefits div {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .benefits div::before {
+            content: '✔ ';
+            font-weight: bold;
+            color: #0073e6;
+        }
+        .testimonials p {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+        .target-audience {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            background-color: #eef7ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .target-audience p {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .cta-button {
+            background-color: #0081CF;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            display: inline-block;
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .cta-button:hover {
+            background-color: #0066B2;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 102, 178, 0.2);
+        }
+        .faq details {
+            background-color: #ffffff;
+            border: 1px solid #0073e6;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq summary {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0073e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            list-style: none;
+        }
+        .faq summary::after {
+            content: '+';
+            font-size: 24px;
+            color: #0073e6;
+        }
+        .faq details[open] summary::after {
+            content: '-';
+        }
+        .faq p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            color: #333;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f0f8ff;
+        }
+        header {
+    /* Eliminamos background-color para que se vea la imagen */
+    color: white;
+    padding: 40px;
+    font-size: 24px;
+    font-weight: bold;
+}
+        section {
+            padding: 60px 20px;
+        }
+        .cta-button {
+            background-color: #0081CF;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            display: inline-block;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .cta-button:hover {
+            background-color: #0066B2;
+            transform: scale(1.05);
+        }
+        .testimonials {
+            background-color: #f4f4f4;
+            padding: 40px;
+            font-style: italic;
+            border-radius: 10px;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            font-size: 14px;
+        }
+        h2 {
+            color: #0073e6;
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll(".fade-in, .scroll-animation");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    } else {
+                        entry.target.classList.remove("visible"); // Hace que la animación se reactive
+                    }
+                });
+            }, { threshold: 0.1 });
+            elements.forEach(el => observer.observe(el));
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll(".fade-in, .scroll-animation");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.1 });
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+    <header style="
+  min-height: 250px;
+  background: url('https://cdn.midjourney.com/3140d6db-ee63-434b-82e4-963e706797f8/0_2.png') no-repeat center center/cover;
+  padding: 80px 20px;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+">
+  <h1 style="font-size: 40px; font-weight: bold; text-align: center;">
+    Clases de Inglés con Enfoque Práctico y Atención Exclusiva
+  </h1>
+  <p style="font-size: 18px; text-align: center; max-width: 800px; margin: 0 auto;">
+    Un curso estructurado que se adapta a tu mundo, combinando un método probado con atención exclusiva para garantizar un aprendizaje rápido y natural.
+  </p>
+</header>
+    <section id="how-it-works" class="how-it-works fade-in">
+        <h2>¿Cómo funciona?</h2>
+        <div class="steps">
+            <div><strong>1. <a href="#contacto">Contáctame</a>:</strong> Evaluamos tu nivel y objetivos.</div>
+            <div><strong>2. Agenda tu primera clase:</strong> Horarios flexibles para ti.</div>
+            <div><strong>3. Aprende con mi método probado:</strong> Usamos el inglés de manera práctica.</div>
+            <div><strong>4. Gana fluidez y confianza:</strong> Aplica el inglés en tu día a día.</div>
+        </div>
+    </section>
+
+    <section id="benefits" class="fade-in">
+        <h2>¿Por qué elegir mis clases?</h2>
+        <div class="benefits">
+            <div>Método probado con años de experiencia y mejoras.</div>
+            <div>Enfoque flexible: aplicamos el inglés a tu vida, trabajo y necesidades.</div>
+            <div>Atención 100% personalizada en cada sesión.</div>
+            <div>Avanza más rápido que en cursos grupales.</div>
+            <div>Un entorno sin presión, ideal para ganar confianza.</div>
+            <div>Aprende con un sistema efectivo sin perder personalización.</div>
+        </div>
+        <a href="#contacto" class="cta-button">Da el primer paso hacia el inglés fluido. ¡Contáctame!</a>
+    </section>
+
+    <section id="testimonials" class="testimonials scroll-animation">
+     <h2>Resultados Reales</h2>
+     <div class="testimonial-carousel">
+         <div><p>"Gracias a este método, aprendí inglés usándolo en mi día a día. Muy práctico y efectivo."</p></div>
+         <div><p>"El curso es claro, pero siempre se adapta a lo que necesito aprender en mi trabajo y vida diaria."</p></div>
+         <div><p>"Gracias a estas clases, ahora hablo inglés con más confianza."</p></div>
+         <div><p>"La metodología es increíblemente práctica y efectiva."</p></div>
+         <div><p>"Avancé más en tres meses que en años de cursos grupales."</p></div>
+     </div>
+     <a href="#contacto" class="cta-button">Tú también puedes lograrlo. Reserva tu cupo ahora</a>
+</section>
+        
+    </section>
+
+    <section id="para-quien" class="fade-in" style="background-color: #eef7ff; padding: 40px; border-radius: 10px;">
+    <h2 style="color: #0073e6;">¿Para quién es este curso?</h2>
+    <div class="target-audience-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto;">
+        <div class="audience-card" style="background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); text-align: center;">
+                        <h3 style="margin-top: 0; margin-bottom: 10px;">Profesionales y ejecutivos</h3>
+            <p style="margin: 0;">Necesitan mejorar su inglés rápidamente para su trabajo.</p>
+        </div>
+        <div class="audience-card" style="background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); text-align: center;">
+                        <h3 style="margin-top: 0; margin-bottom: 10px;">Quienes han tenido malas experiencias</h3>
+            <p style="margin: 0;">Personas que han fracasado con métodos grupales y buscan algo realmente práctico.</p>
+        </div>
+        <div class="audience-card" style="background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); text-align: center;">
+                        <h3 style="margin-top: 0; margin-bottom: 10px;">Adultos y jóvenes ocupados</h3>
+            <p style="margin: 0;">Con poco tiempo, que prefieren clases flexibles y a medida.</p>
+        </div>
+        <div class="audience-card" style="background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); text-align: center;">
+                        <h3 style="margin-top: 0; margin-bottom: 10px;">Personas tímidas o inseguras</h3>
+            <p style="margin: 0;">Desean aprender en un ambiente cómodo y sin presión.</p>
+        </div>
+        <div class="audience-card" style="background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); text-align: center;">
+                        <h3 style="margin-top: 0; margin-bottom: 10px;">Quienes sueñan con hablar inglés</h3>
+            <p style="margin: 0;">Aún no sé qué poner aquí.</p>
+        </div>
+    </div>
+    <div style="margin-top: 20px;">
+        <a href="#contacto" class="cta-button" style="font-size: 18px;">¿Te identificas con alguno de estos perfiles? ¡Contáctame!</a>
+    </div>
+</section>
+
+    <section id="faq" class="faq scroll-animation">
+        <h2>Preguntas Frecuentes</h2>
+        <details>
+            <summary><strong>¿Las clases son en vivo?</strong></summary>
+            <p>Sí, todas las clases se realizan en tiempo real para asegurar una experiencia interactiva y efectiva.</p>
+        </details>
+        <details>
+            <summary><strong>¿Cómo funcionan las clases?</strong></summary>
+            <p>Son sesiones individuales basadas en un método probado que se adapta a tu contexto personal y profesional.</p>
+        </details>
+        <details>
+            <summary><strong>¿Necesito conocimientos previos?</strong></summary>
+            <p>No, las clases están diseñadas tanto para principiantes como para avanzados.</p>
+        </details>
+        <details>
+            <summary><strong>¿Cuántas clases tengo por semana?</strong></summary>
+            <p>Tendrás dos clases por semana, con un horario fijo pero flexible en caso de imprevistos.</p>
+        </details>
+        <details>
+            <summary><strong>¿Cuánto dura cada clase?</strong></summary>
+            <p>Cada clase dura aproximadamente 55 minutos, asegurando el equilibrio perfecto entre teoría y práctica.</p>
+        </details>
+        <details>
+            <summary><strong>Si empiezo desde cero, ¿cuánto tiempo tomará ver resultados?</strong></summary>
+            <p>Siguiendo el método y comprometiéndote con el proceso, en seis meses notarás que el inglés empieza a fluir naturalmente.</p>
+        </details>
+        <details>
+            <summary><strong>¿Cómo se agendan las clases?</strong></summary>
+            <p>Definimos un horario fijo para tus clases semanales. Si necesitas faltar a una sesión, la reagendamos según la disponibilidad de ambos.</p>
+        </details>
+        <details>
+            <summary><strong>¿Qué materiales utilizaremos?</strong></summary>
+            <p>Trabajo con un curso estructurado y materiales complementarios según tus necesidades.</p>
+        </details>
+        <details>
+            <summary><strong>¿Necesito comprar libros o material extra?</strong></summary>
+            <p>No, el curso incluye todo el material necesario. También recibirás recursos adicionales según tus necesidades.</p>
+        </details>
+        <details>
+            <summary><strong>¿Las clases incluyen práctica oral?</strong></summary>
+            <p>Sí, cada sesión te motiva a usar el inglés en situaciones reales.</p>
+        </details>
+        <details>
+            <summary><strong>¿Qué plataforma se usa para las clases?</strong></summary>
+            <p>Las clases se realizan a través de Zoom, ofreciendo herramientas interactivas para un aprendizaje fluido y dinámico.</p>
+        </details>
+        <p><a href="#contacto" class="cta-button">¿Tienes más dudas? Escríbeme</a></p>
+    </section>
+        
+
+    <section id="contacto" class="fade-in">
+        <h2>Contáctame</h2>
+        <p>Escríbeme y empecemos tu aprendizaje hoy.</p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/TUNUMERO">Enviar mensaje</a></p>
+        <p><strong>Email:</strong> contacto@inglesccq.cl</p>
+        <form class="contact-form">
+            <input type="text" name="name" placeholder="Tu Nombre" required>
+            <input type="email" name="email" placeholder="Tu Email" required>
+            <textarea name="message" placeholder="Tu Mensaje" required></textarea>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Carlos Covarrubias. Todos los derechos reservados.</p>
+    </footer>
+</body>
+    <script>
+        // Resaltar la sección activa en el menú
+        window.addEventListener('scroll', function() {
+            let sections = document.querySelectorAll('section');
+            let navLinks = document.querySelectorAll('.navbar ul li');
+            sections.forEach(section => {
+                let top = window.scrollY;
+                let offset = section.offsetTop - 100;
+                let height = section.offsetHeight;
+                let id = section.getAttribute('id');
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.querySelector('a').getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        // Menú hamburguesa
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.navbar ul').classList.toggle('active');
+        });
+        // Cambio de color del menú al hacer scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        // Resaltar sección activa en el menú
+        window.addEventListener('scroll', function() {
+            let sections = document.querySelectorAll('section');
+            let navLinks = document.querySelectorAll('.navbar ul li a');
+            sections.forEach(section => {
+                let top = window.scrollY;
+                let offset = section.offsetTop - 100;
+                let height = section.offsetHeight;
+                let id = section.getAttribute('id');
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(link => {
+                        link.parentElement.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.parentElement.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+        // Botón de volver arriba
+        let backToTop = document.createElement('button');
+        backToTop.classList.add('back-to-top');
+        backToTop.innerHTML = '⬆';
+        document.body.appendChild(backToTop);
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    <script>
+        // Barra de progreso al hacer scroll
+        window.addEventListener('scroll', function() {
+            const progressBar = document.querySelector('.progress-bar');
+            const totalHeight = document.body.scrollHeight - window.innerHeight;
+            const progress = (window.scrollY / totalHeight) * 100;
+            progressBar.style.width = progress + '%';
+        });
+        // Carrusel de testimonios automático
+        let index = 0;
+        function showNextTestimonial() {
+            const testimonials = document.querySelectorAll('.testimonial-carousel div');
+            testimonials.forEach((testimonial, i) => {
+                testimonial.style.transform = `translateX(-${index * 100}%)`;
+            });
+            index = (index + 1) % testimonials.length;
+        }
+        setInterval(showNextTestimonial, 4000);
+    </script>
+    <div class="progress-bar"></div>
+    
+    <script>
+        // Detectar scroll y cambiar color del menú
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <a href="#contacto" class="cta-float">Reserva tu cupo</a>
+    
+    <div class="whatsapp-float">
+        <span class="whatsapp-tooltip">¿Tienes dudas? Escríbeme en WhatsApp</span>
+        <a href="https://wa.me/56962299656" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            <span>Chatea en WhatsApp</span>
+        </a>
+    </div>
+</html>
